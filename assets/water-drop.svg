@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="water-drop.svg"
+   inkscape:version="1.0 (1.0+r73+1)"
+   id="svg3096"
+   version="1.1"
+   viewBox="0 0 3.4302485 4.9248405"
+   height="4.9248405mm"
+   width="3.4302485mm">
+  <defs
+     id="defs3090" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="1920"
+     inkscape:window-height="1052"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="12.333142"
+     inkscape:cx="46.184909"
+     inkscape:zoom="5.6"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata3093">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-54.981304,-184.25782)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       id="path2299"
+       d="m 56.500933,189.17519 c -0.30015,-0.0451 -0.55734,-0.14229 -0.78436,-0.29645 -0.20689,-0.1405 -0.42513,-0.38743 -0.5435,-0.61497 -0.16234,-0.31203 -0.23047,-0.71575 -0.16994,-1.00697 0.0784,-0.37716 0.34287,-0.92404 0.80718,-1.66911 0.13196,-0.21178 0.85171,-1.30043 0.8791,-1.3297 0.013,-0.0139 0.57897,0.82709 0.87534,1.30075 0.43035,0.68777 0.67507,1.16679 0.79125,1.54876 0.0805,0.2646 0.0732,0.58413 -0.0199,0.87569 -0.232869,0.72944 -0.89466,1.20921 -1.65429,1.19932 -0.0796,-0.001 -0.16103,-0.005 -0.18093,-0.007 z"
+       style="fill:#274db7;fill-opacity:1;stroke:none;stroke-width:0.999998;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

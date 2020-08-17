@@ -1,0 +1,44 @@
+* {
+    font-family: acre;
+}
+
+@font-face {
+    font-family: trend;
+    src: url(../fonts/Trend.otf);
+}
+
+@font-face {
+    font-family: acre;
+    src: url(../fonts/Acre.otf);
+}
+
+
+.card-white {
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    color: #808080
+}
+
+.text-vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.bar-white {
+    background-color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 5px;
+    color: #808080
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
