@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Kulim+Park&display=swap" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link href="../style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/materialize.min.css">
 
 </head>
 <body style="background: #ececec">
@@ -44,18 +44,22 @@
                     <h1 style="color: #77ed69; font-size: 6rem">6.3</h1>
                     <div class="row my-2">
                         <div class="col">
-                            <img src="../assets/peak-arrow.svg"> 24.72°C
+                            <img class="tooltipped" data-position="top"
+                                 data-tooltip="Peak Temperature" src="../assets/peak-arrow.svg"> 24.72°C
                         </div>
                         <div class="col">
-                            <img src="../assets/cloud.svg"> 83%
+                            <img class="tooltipped" data-position="top"
+                                 data-tooltip="Cloudiness" src="../assets/cloud.svg"> 83%
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <img src="../assets/min-arrow.svg"> 17.71°C
+                            <img class="tooltipped" data-position="top"
+                                 data-tooltip="Morning Temperature" src="../assets/min-arrow.svg"> 17.71°C
                         </div>
                         <div class="col">
-                            <img src="../assets/water-drop.svg"> 100%
+                            <img class="tooltipped" data-position="top"
+                                 data-tooltip="Probability of Precipitation" src="../assets/water-drop.svg"> 100%
                         </div>
                     </div>
                 </div>
@@ -350,9 +354,13 @@
         <h4>PREFERENCES</h4>
         <br>
         <div class="card-white">
+
             <span style="color: #274db7">Dew Point</span>
+            <img class="tooltipped d-inline-block" data-position="top"
+                 data-tooltip="The temperature at which dew will form. Affects how humid it feels outside. <br>A higher dew point is more &quot;muggy&quot; and a lower dew point can cause dry skin."
+                 src="../assets/help-circle.svg">
             <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="dewp" min="0" max="100" />
+                <input type="range" id="dewp" min="0" max="100"/>
             </p>
             <div class="row">
                 <div class="col">
@@ -364,8 +372,11 @@
             </div>
             <br>
             <span style="color: #274db7">Max. Temperature</span>
+            <img class="tooltipped d-inline-block" data-position="top"
+                 data-tooltip="The peak temperature of the day."
+                 src="../assets/help-circle.svg">
             <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="maxtemp" min="0" max="100" />
+                <input type="range" id="maxtemp" min="0" max="100"/>
             </p>
             <div class="row">
                 <div class="col">
@@ -377,6 +388,9 @@
             </div>
             <br>
              <span style="color: #274db7">Min. Temperature</span>
+            <img class="tooltipped d-inline-block" data-position="top"
+                 data-tooltip="The temperature in the morning."
+                 src="../assets/help-circle.svg">
             <p class="range-field" style="margin-bottom: 0">
                 <input type="range" id="mintemp" min="0" max="100" />
             </p>
@@ -390,6 +404,9 @@
             </div>
             <br>
              <span style="color: #274db7">Cloudiness</span>
+            <img class="tooltipped d-inline-block" data-position="top"
+                 data-tooltip="A percentage of how cloudy it is."
+                 src="../assets/help-circle.svg">
             <p class="range-field" style="margin-bottom: 0">
                 <input type="range" id="cloud" min="0" max="100" />
             </p>
@@ -403,6 +420,9 @@
             </div>
             <br>
              <span style="color: #274db7">UV Index</span>
+            <img class="tooltipped d-inline-block" data-position="top"
+                 data-tooltip="The ultraviolet index measures the strength of sunburn-producing UV radiation.<br> A UV Index of more than 5 represents high risk of harm from unprotected sun exposure."
+                 src="../assets/help-circle.svg">
             <p class="range-field" style="margin-bottom: 0">
                 <input type="range" id="uvi" min="0" max="100" />
             </p>
@@ -416,6 +436,9 @@
             </div>
             <br>
                  <span style="color: #274db7">Probability of Precipitation</span>
+            <img class="tooltipped d-inline-block" data-position="top"
+                 data-tooltip="The probability of precipitation in a given day (ie. how likely it will rain or snow)."
+                 src="../assets/help-circle.svg">
             <p class="range-field" style="margin-bottom: 0">
                 <input type="range" id="pop" min="0" max="100" />
             </p>
@@ -428,46 +451,126 @@
                 </div>
             </div>
             <br>
+            <br>
+            <div class="collapse" id="collapsePref">
+                <div class="row">
+                    <div class="col-sm-auto">
+                        Advanced
+                    </div>
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <span style="color: #274db7">Ideal Dew Point</span>
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="idewp" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
+                </div>
+                <br>
+                <span style="color: #274db7">Ideal Max. Temperature</span>
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="imaxtemp" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
+                </div>
+                <br>
+                <span style="color: #274db7">Ideal Min. Temperature</span>
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="imintemp" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
+                </div>
+                <br>
+                <span style="color: #274db7">Ideal Cloudiness</span>
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="icloud" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
+                </div>
+                <br>
+                <span style="color: #274db7">Ideal UV Index</span>
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="iuvi" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
+                </div>
+                <br>
+                <span style="color: #274db7">Ideal Probability of Precipitation</span>
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="ipop" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="text-right">
+                <a href="#collapsePref" data-toggle="collapse"><u>Advanced</u></a>
+            </div>
         </div>
     </div>
 </div>
 <div style="height: 40vh" class="text-center">
     <div style="margin: 20vh 0;">
-        <img src="https://raw.githubusercontent.com/FrankWhoee/Assets/master/spacelogo.jpg" style="border-radius: 100px; height: 7.5vh;">
-        <br>
+        <img src="https://raw.githubusercontent.com/FrankWhoee/Assets/master/spacelogo.jpg"
+             style="border-radius: 100px; height: 7.5vh;">
+        <br><br>
         <h5>Made by <a href="https://frankwhoee.codes">@FrankWhoee</a></h5>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
         integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../js/materialize.min.js"></script>
+<script src="../js/main.js"></script>
 </body>
-<script>
-    $('.expand-on-hover').hover(function () {
-        animeTarget = this;
-        anime({
-            targets: animeTarget,
-            translateY: -5,
-            scale: 1.1
-        });
-    }, function () {
-        animeTarget = this;
-        anime({
-            targets: animeTarget,
-            translateY: 0,
-            scale: 1
-        });
-    });
-</script>
 </html>
