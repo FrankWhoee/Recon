@@ -127,6 +127,8 @@ def get_weather(lat, long, score_sorted=False, units="metric"):
             colour = '#%02x%02x%02x' % (int(255 * (score / 50)), 255, 0)
         elif score >= 50 and score <= 100:
             colour = '#%02x%02x%02x' % (255, int(255 * (1 - ((score["score"] - 50) / 50))), 0)
+        else:
+            colour = '#ff0000'
 
         detail["colour"] = colour
 
