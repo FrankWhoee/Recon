@@ -101,6 +101,18 @@ async function get_data(position, sorted = false) {
                 resolve(JSON.parse(response));
             },
             error: function () {
+                Swal.fire({
+                position: 'top',
+                icon: 'error',
+                title: 'Something went wrong while contacting the server.',
+                showConfirmButton: false,
+                timer: 2000,
+                backdrop: false,
+                toast: true,
+                customClass: {
+                    border: '5px solid black'
+                }
+            })
                 reject;
             }
         })

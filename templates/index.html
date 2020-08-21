@@ -49,100 +49,101 @@
         <h4>PREFERENCES</h4>
         <br>
         <div class="card-white">
-
-            <span style="color: #274db7">Dew Point</span>
-            <img class="tooltipped d-inline-block" data-position="top"
-                 data-tooltip="The temperature at which dew will form. Affects how humid it feels outside. <br>A higher dew point is more &quot;muggy&quot; and a lower dew point can cause dry skin."
-                 src="../assets/help-circle.svg">
-            <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="dewp" min="0" max="100"/>
-            </p>
-            <div class="row">
-                <div class="col">
-                    Not Important
+            <div>
+                <span style="color: #274db7">Dew Point</span>
+                <img class="tooltipped d-inline-block" data-position="top"
+                     data-tooltip="The temperature at which dew will form. Affects how humid it feels outside. <br>A higher dew point is more &quot;muggy&quot; and a lower dew point can cause dry skin."
+                     src="../assets/help-circle.svg">
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="dewp" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
                 </div>
-                <div class="col text-right" style="color: #274db7">
-                    Highly Important
+                <br>
+                <span style="color: #274db7">Max. Temperature</span>
+                <img class="tooltipped d-inline-block" data-position="top"
+                     data-tooltip="The peak temperature of the day."
+                     src="../assets/help-circle.svg">
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="maxtemp" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
                 </div>
-            </div>
-            <br>
-            <span style="color: #274db7">Max. Temperature</span>
-            <img class="tooltipped d-inline-block" data-position="top"
-                 data-tooltip="The peak temperature of the day."
-                 src="../assets/help-circle.svg">
-            <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="maxtemp" min="0" max="100"/>
-            </p>
-            <div class="row">
-                <div class="col">
-                    Not Important
+                <br>
+                <span style="color: #274db7">Morning Temperature</span>
+                <img class="tooltipped d-inline-block" data-position="top"
+                     data-tooltip="The temperature in the morning. Serves as an approximation of the <br>lowest temperature of that day."
+                     src="../assets/help-circle.svg">
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="mintemp" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
                 </div>
-                <div class="col text-right" style="color: #274db7">
-                    Highly Important
+                <br>
+                <span style="color: #274db7">Cloudiness</span>
+                <img class="tooltipped d-inline-block" data-position="top"
+                     data-tooltip="A percentage of how cloudy it is."
+                     src="../assets/help-circle.svg">
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="cloud" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
                 </div>
-            </div>
-            <br>
-             <span style="color: #274db7">Min. Temperature</span>
-            <img class="tooltipped d-inline-block" data-position="top"
-                 data-tooltip="The temperature in the morning."
-                 src="../assets/help-circle.svg">
-            <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="mintemp" min="0" max="100" />
-            </p>
-            <div class="row">
-                <div class="col">
-                    Not Important
+                <br>
+                <span style="color: #274db7">UV Index</span>
+                <img class="tooltipped d-inline-block" data-position="top"
+                     data-tooltip="The ultraviolet index measures the strength of sunburn-producing UV radiation.<br> A UV Index of more than 5 represents high risk of harm from unprotected sun exposure."
+                     src="../assets/help-circle.svg">
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="uvi" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
                 </div>
-                <div class="col text-right" style="color: #274db7">
-                    Highly Important
-                </div>
-            </div>
-            <br>
-             <span style="color: #274db7">Cloudiness</span>
-            <img class="tooltipped d-inline-block" data-position="top"
-                 data-tooltip="A percentage of how cloudy it is."
-                 src="../assets/help-circle.svg">
-            <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="cloud" min="0" max="100" />
-            </p>
-            <div class="row">
-                <div class="col">
-                    Not Important
-                </div>
-                <div class="col text-right" style="color: #274db7">
-                    Highly Important
-                </div>
-            </div>
-            <br>
-             <span style="color: #274db7">UV Index</span>
-            <img class="tooltipped d-inline-block" data-position="top"
-                 data-tooltip="The ultraviolet index measures the strength of sunburn-producing UV radiation.<br> A UV Index of more than 5 represents high risk of harm from unprotected sun exposure."
-                 src="../assets/help-circle.svg">
-            <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="uvi" min="0" max="100" />
-            </p>
-            <div class="row">
-                <div class="col">
-                    Not Important
-                </div>
-                <div class="col text-right" style="color: #274db7">
-                    Highly Important
-                </div>
-            </div>
-            <br>
-                 <span style="color: #274db7">Probability of Precipitation</span>
-            <img class="tooltipped d-inline-block" data-position="top"
-                 data-tooltip="The probability of precipitation in a given day (ie. how likely it will rain or snow)."
-                 src="../assets/help-circle.svg">
-            <p class="range-field" style="margin-bottom: 0">
-                <input type="range" id="pop" min="0" max="100" />
-            </p>
-            <div class="row">
-                <div class="col">
-                    Not Important
-                </div>
-                <div class="col text-right" style="color: #274db7">
-                    Highly Important
+                <br>
+                <span style="color: #274db7">Probability of Precipitation</span>
+                <img class="tooltipped d-inline-block" data-position="top"
+                     data-tooltip="The probability of precipitation in a given day (ie. how likely it will rain or snow)."
+                     src="../assets/help-circle.svg">
+                <p class="range-field" style="margin-bottom: 0">
+                    <input type="range" id="pop" min="0" max="100"/>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        Not Important
+                    </div>
+                    <div class="col text-right" style="color: #274db7">
+                        Highly Important
+                    </div>
                 </div>
             </div>
             <br>
@@ -160,79 +161,79 @@
                 <br>
                 <span style="color: #274db7">Ideal Dew Point</span>
                 <p class="range-field" style="margin-bottom: 0">
-                    <input type="range" id="idewp" min="0" max="100"/>
+                    <input type="range" id="idewp" min="-10" max="100" value="14.17"/>
                 </p>
                 <div class="row">
                     <div class="col">
-                        Not Important
+                        -10°C
                     </div>
                     <div class="col text-right" style="color: #274db7">
-                        Highly Important
+                        25°C
                     </div>
                 </div>
                 <br>
                 <span style="color: #274db7">Ideal Max. Temperature</span>
                 <p class="range-field" style="margin-bottom: 0">
-                    <input type="range" id="imaxtemp" min="0" max="100"/>
+                    <input type="range" id="imaxtemp" min="-90" max="50" value="20"/>
                 </p>
                 <div class="row">
                     <div class="col">
-                        Not Important
+                        -90°C
                     </div>
                     <div class="col text-right" style="color: #274db7">
-                        Highly Important
+                        50°C
                     </div>
                 </div>
                 <br>
-                <span style="color: #274db7">Ideal Min. Temperature</span>
+                <span style="color: #274db7">Ideal Morning Temperature</span>
                 <p class="range-field" style="margin-bottom: 0">
-                    <input type="range" id="imintemp" min="0" max="100"/>
+                    <input type="range" id="imintemp" min="-90" max="50" value="17.5"/>
                 </p>
                 <div class="row">
                     <div class="col">
-                        Not Important
+                        -90°C
                     </div>
                     <div class="col text-right" style="color: #274db7">
-                        Highly Important
+                        50°C
                     </div>
                 </div>
                 <br>
                 <span style="color: #274db7">Ideal Cloudiness</span>
                 <p class="range-field" style="margin-bottom: 0">
-                    <input type="range" id="icloud" min="0" max="100"/>
+                    <input type="range" id="icloud" min="0" max="100" value="50"/>
                 </p>
                 <div class="row">
                     <div class="col">
-                        Not Important
+                        0%
                     </div>
                     <div class="col text-right" style="color: #274db7">
-                        Highly Important
+                        100%
                     </div>
                 </div>
                 <br>
                 <span style="color: #274db7">Ideal UV Index</span>
                 <p class="range-field" style="margin-bottom: 0">
-                    <input type="range" id="iuvi" min="0" max="100"/>
+                    <input type="range" id="iuvi" min="0" max="11" value="0"/>
                 </p>
                 <div class="row">
                     <div class="col">
-                        Not Important
+                        0
                     </div>
                     <div class="col text-right" style="color: #274db7">
-                        Highly Important
+                        11
                     </div>
                 </div>
                 <br>
                 <span style="color: #274db7">Ideal Probability of Precipitation</span>
                 <p class="range-field" style="margin-bottom: 0">
-                    <input type="range" id="ipop" min="0" max="100"/>
+                    <input type="range" id="ipop" min="0" max="100" value="0"/>
                 </p>
                 <div class="row">
                     <div class="col">
-                        Not Important
+                        0%
                     </div>
                     <div class="col text-right" style="color: #274db7">
-                        Highly Important
+                        100%
                     </div>
                 </div>
                 <br>

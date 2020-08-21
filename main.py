@@ -7,15 +7,17 @@ from requests import get
 
 app = Flask(__name__)
 
-app.secret_key = 'Zli6WMDUEboJnp34fzwK'.encode('utf8')
+with open(r'config.yaml') as file:
+    config = yaml.load(file, Loader=yaml.FullLoader)
+
+app.secret_key = config['secret-key'].encode('utf8')
 
 recipes = []
 icons = []
 
 search_index = []
 
-with open(r'config.yaml') as file:
-    config = yaml.load(file, Loader=yaml.FullLoader)
+
 
 
 @app.route('/assets/<path>')
