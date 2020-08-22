@@ -1,10 +1,18 @@
 async function render_wrap(position) {
     get_data(position).then(function (result) {
         render_data_week(result)
+        $('.tooltipped').tooltip();
     })
     get_data(position, sorted=true).then(function (result) {
         render_data_recommended(result)
+        $('.tooltipped').tooltip();
     })
+}
+
+function render_data_preferences(data){
+    for(i = 0; i < data.keys().length; i++){
+
+    }
 }
 
 function render_data_recommended(data) {
@@ -64,7 +72,7 @@ function render_data_week(data) {
             "                    <div class=\"col text-center text-vertical-center\">\n" +
             "                        " + new Date(data[i]["dt"] * 1000).toLocaleString('en-us', {weekday: 'long'}) + "\n" +
             "                    </div>\n" +
-            "                    <div class=\"col text-center text-vertical-center\" style=\"color: " + data[i]["colour"] + ";\">\n" +
+            "                    <div class=\"col text-center text-vertical-center text-horizontal-center\" style=\"color: " + data[i]["colour"] + ";\">\n" +
             "                        " + Math.round(data[i]["score"]) + "\n" +
             "                    </div>\n" +
             "                </div>\n" +
@@ -74,7 +82,7 @@ function render_data_week(data) {
             "                            <img src=\"../assets/peak-arrow.svg\"> " + data[i]["maxtemp"] + "°C\n" +
             "                        </div>\n" +
             "                        <div class=\"col\">\n" +
-            "                            <img src=\"../assets/cloud.svg\"> " + data[i]["clouds"] + "%\n" +
+            "                            <img src=\"../assets/cloud.svg\"> " + Math.round(data[i]["clouds"]) + "%\n" +
             "                        </div>\n" +
             "                    </div>\n" +
             "                    <div class=\"row px-5\">\n" +
@@ -82,7 +90,7 @@ function render_data_week(data) {
             "                            <img src=\"../assets/min-arrow.svg\"> " + data[i]["morntemp"] + "°C\n" +
             "                        </div>\n" +
             "                        <div class=\"col\">\n" +
-            "                            <img src=\"../assets/water-drop.svg\"> " + data[i]["pop"] * 100 + "%\n" +
+            "                            <img src=\"../assets/water-drop.svg\"> " + Math.round(data[i]["pop"]* 100)  + "%\n" +
             "                        </div>\n" +
             "                    </div>\n" +
             "                </div>\n" +

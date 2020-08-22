@@ -17,7 +17,25 @@ icons = []
 
 search_index = []
 
+default_preferences = {
+    'dewp': 50,
+    'maxtemp': 50,
+    'morntemp': 50,
+    'clouds': 50,
+    'uvi': 50,
+    'pop': 50,
+    'idewp': 14.17,
+    'imaxtemp': 20,
+    'imorntemp': 17.5,
+    'iclouds': 50,
+    'iuvi': 0,
+    'ipop': 0
+}
 
+
+def set_default_preferences():
+    for pref in default_preferences.keys():
+        session[pref] = default_preferences[pref]
 
 
 @app.route('/assets/<path>')
@@ -34,14 +52,17 @@ def send_style(path):
 def send_js(path):
     return send_from_directory('js', path)
 
+
 @app.route('/fonts/<path>')
 def send_fonts(path):
     return send_from_directory('fonts', path)
 
 
-
 @app.route('/')
 def index():
+    for pref in default_preferences.keys():
+        if pref not in session:
+            session[pref] = default_preferences[pref]
     return render_template("index.html")
 
 
@@ -54,6 +75,20 @@ def get_data():
                                       units=request.args["units"] if "units" in request.args else "metric"))
     else:
         return json.dumps(get_weather(request.args['lat'], request.args['long']))
+
+
+
+@app.route('/pref')
+def get_preferences():
+    output = {}
+    for pref in default_preferences.keys():
+        output[pref] = session[pref]
+    return json.dumps(output)
+
+@app.route('/reset_pref')
+def reset_preferences():
+    set_default_preferences()
+    return Response(status=200)
 
 
 def get_weather(lat, long, score_sorted=False, units="metric"):
@@ -69,57 +104,54 @@ def get_weather(lat, long, score_sorted=False, units="metric"):
         detail["icon"] = 'http://openweathermap.org/img/wn/' + day["weather"][0]["icon"] + '@2x.png'
         # Dew point score
         dewp = 0
-        if day["dew_point"] > 15.56:
-            dewp = day["dew_point"] - 15.56
-        elif day["dew_point"] < 12.78:
-            dewp = 12.78 - day["dew_point"]
-        dewp *= 2
+        if day["dew_point"] > session['idewp'] + 1.39:
+            dewp = day["dew_point"] - session['idewp'] + 1.39
+        elif day["dew_point"] < session['idewp'] - 1.39:
+            dewp = session['idewp'] - 1.39 - day["dew_point"]
+        dewp *= 2 * session['dewp'] / 50
         score += dewp
 
         detail['dew_point'] = day["dew_point"]
 
         # Temperature score
         maxtemp = 0
-        if day["temp"]["max"] > 25:
-            maxtemp = day["temp"]["max"] - 25
-        elif day["temp"]["max"] < 15:
-            maxtemp = 15 - day["temp"]["max"]
-        maxtemp *= 3
+        if day["temp"]["max"] > session['imaxtemp'] + 5:
+            maxtemp = day["temp"]["max"] - session['imaxtemp'] + 5
+        elif day["temp"]["max"] < session['imaxtemp'] - 5:
+            maxtemp = session['imaxtemp'] - 5 - day["temp"]["max"]
+        maxtemp *= 3 * session['maxtemp'] / 50
         score += maxtemp
 
         detail['maxtemp'] = day["temp"]["max"]
 
         # Temperature score
         morntemp = 0
-        if day["temp"]["morn"] > 20:
-            morntemp = day["temp"]["morn"] - 20
-        elif day["temp"]["morn"] < 15:
-            morntemp = 15 - day["temp"]["morn"]
-        morntemp *= 1.5
+        if day["temp"]["morn"] > session['imorntemp'] + 2.5:
+            morntemp = day["temp"]["morn"] - session['imorntemp'] + 2.5
+        elif day["temp"]["morn"] < session['imorntemp'] - 2.5:
+            morntemp = session['imorntemp'] - 2.5 - day["temp"]["morn"]
+        morntemp *= 1.5 * session["morntemp"] / 50
         score += morntemp
 
         detail['morntemp'] = day["temp"]["morn"]
 
         # Cloudiness score
-        clouds = 0
-        optimal_cloudiness = 50
-        if day["clouds"] > optimal_cloudiness:
-            clouds = (day["clouds"] - optimal_cloudiness)
-        elif day["clouds"] < optimal_cloudiness:
-            clouds = (optimal_cloudiness - day["clouds"])
-        clouds *= 0.09
+        clouds = abs(session['iclouds'] - day["clouds"])
+        clouds *= 0.09 * session["clouds"] / 50
         score += clouds
 
         detail['clouds'] = day["clouds"]
 
         # UVI score
-        uvi = day["uvi"] * 0.5
+        uvi = abs(session['iuvi'] - day['uvi'])
+        uvi *= 0.5 * session["uvi"] / 50
         score += uvi
 
         detail['uvi'] = day["uvi"]
 
-        # Probability of Precipiation score
-        pop = day["pop"] * 100
+        # Probability of Precipiation score'
+        pop = abs(session["ipop"] - day["pop"])
+        pop *= 100 * session["pop"] / 50
         score += pop
 
         detail['pop'] = day["pop"]
