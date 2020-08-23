@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, send_from_directory, session,
 import math
 import yaml
 from requests import get
+import time
 
 app = Flask(__name__)
 
@@ -76,7 +77,11 @@ def get_data():
     else:
         return json.dumps(get_weather(request.args['lat'], request.args['long']))
 
-
+@app.route('/update_pref', methods=['POST'])
+def update_preferences():
+    for pref in request.json.keys():
+        session[pref] = float(request.json[pref])
+    return "{}"
 
 @app.route('/pref')
 def get_preferences():
@@ -88,14 +93,20 @@ def get_preferences():
 @app.route('/reset_pref')
 def reset_preferences():
     set_default_preferences()
-    return Response(status=200)
+    return get_preferences()
 
 
 def get_weather(lat, long, score_sorted=False, units="metric"):
-    r = get(
-        "https://api.openweathermap.org/data/2.5/onecall?lat=" + str(lat) + "&lon=" + str(long) + "&appid=" + config[
-            'weather-token'] + "&units=" + units)
-    weather_data = json.loads(r.text)
+    if 'cache' not in session or abs(time.time() - session['cache']['dt']) > 3600 or abs(lat - session['cache']['lat']) > 0.2 or abs(long - session['cache']['long']) > 0.2:
+        r = get(
+            "https://api.openweathermap.org/data/2.5/onecall?lat=" + str(lat) + "&lon=" + str(long) + "&appid=" +
+            config[
+                'weather-token'] + "&units=" + units)
+        weather_data = json.loads(r.text)
+        session["cache"] = {"dt": time.time(), 'data':weather_data, 'lat': lat, 'long': long}
+    else:
+        weather_data = session['cache']['data']
+
     scores = []
     for day in weather_data["daily"]:
         score = 0
@@ -150,7 +161,7 @@ def get_weather(lat, long, score_sorted=False, units="metric"):
         detail['uvi'] = day["uvi"]
 
         # Probability of Precipiation score'
-        pop = abs(session["ipop"] - day["pop"])
+        pop = abs(session["ipop"]/100 - day["pop"])
         pop *= 100 * session["pop"] / 50
         score += pop
 
@@ -160,7 +171,7 @@ def get_weather(lat, long, score_sorted=False, units="metric"):
         if score < 50:
             colour = '#%02x%02x%02x' % (int(255 * (score / 50)), 255, 0)
         elif score >= 50 and score <= 100:
-            colour = '#%02x%02x%02x' % (255, int(255 * (1 - ((score["score"] - 50) / 50))), 0)
+            colour = '#%02x%02x%02x' % (255, int(255 * (1 - ((score - 50) / 50))), 0)
         else:
             colour = '#ff0000'
 

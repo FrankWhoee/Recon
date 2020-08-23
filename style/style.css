@@ -62,3 +62,12 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+a .text-white{
+    color: white;
+    text-decoration: none;
+}
+a:hover .text-white{
+    color: white;
+    text-decoration: none;
+}
