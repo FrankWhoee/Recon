@@ -97,11 +97,10 @@ def reset_preferences():
 
 
 def get_weather(lat, long, score_sorted=False, units="metric"):
-    if 'cache' not in session or abs(time.time() - session['cache']['dt']) > 3600 or abs(lat - session['cache']['lat']) > 0.2 or abs(long - session['cache']['long']) > 0.2:
+    if 'cache' not in session or abs(time.time() - session['cache']['dt']) > 3600 or abs(float(lat) - float(session['cache']['lat'])) > 0.2 or abs(float(long) - float(session['cache']['long'])) > 0.2:
         r = get(
             "https://api.openweathermap.org/data/2.5/onecall?lat=" + str(lat) + "&lon=" + str(long) + "&appid=" +
-            config[
-                'weather-token'] + "&units=" + units)
+            config['weather-token'] + "&units=" + units)
         weather_data = json.loads(r.text)
         session["cache"] = {"dt": time.time(), 'data':weather_data, 'lat': lat, 'long': long}
     else:

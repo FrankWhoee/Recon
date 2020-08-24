@@ -55,6 +55,27 @@
     color: #808080
 }
 
+.mobile-friendly {
+    display: none;
+}
+
+.mobile-unfriendly {
+    display: block;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .mobile-unfriendly {
+        display: none;
+    !important;
+    }
+
+    .mobile-friendly {
+        display: block;
+    !important;
+    }
+}
+
 a {
     text-decoration: none;
 }

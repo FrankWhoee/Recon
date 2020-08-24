@@ -19,6 +19,7 @@ function update_pref() {
     payload = {}
     for (i = 0; i < sliders.length; i++) {
         payload[sliders[i].id] = sliders[i].value
+        document.getElementById("indicate_" + sliders[i].id).innerText = sliders[i].value
     }
     $.ajax({
         type: "POST",
@@ -69,6 +70,7 @@ function render_data_preferences(data) {
     for (i = 0; i < keys.length; i++) {
         console.log(keys[i])
         document.getElementById(keys[i]).value = data[keys[i]]
+        document.getElementById("indicate_" + keys[i]).innerText = data[keys[i]]
     }
 }
 
@@ -108,7 +110,7 @@ function render_data_recommended(data) {
             "                    </div>\n" +
             "                </div>\n" +
             "                <div class=\"col\">\n" +
-            "                    <img src=\"http://openweathermap.org/img/wn/10d@2x.png\"\n" +
+            "                    <img src=\""+data[i]['icon']+"\"\n" +
             "                         style=\"position: absolute; bottom: 50%; left: 50%; transform: translate(-50%,50%)\">\n" +
             "                </div>\n" +
             "            </div>\n"
