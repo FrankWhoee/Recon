@@ -72,6 +72,13 @@ def index():
             session[pref] = default_preferences[pref]
     return render_template("index.html")
 
+@app.route('/magic')
+@app.route('/sausage')
+@app.route('/works')
+@app.route('/how')
+def howitworks():
+    return render_template("howitworks.html")
+
 
 @app.route('/data')
 def get_data():

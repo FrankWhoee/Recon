@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recon</title>
+    <link rel="icon" href="../assets/logo-blue.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Kulim+Park&display=swap" rel="stylesheet">
+    <link href="../style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/materialize.min.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+    <style>
+        p {
+            font-size: 1.5rem;
+            color: dimgrey;
+        }
+
+        h1 {
+            font-size: 5rem
+        }
+
+        h3 {
+            font-size: 4rem
+        }
+    </style>
+</head>
+<body style="background: #ececec">
+
+<div class="text-center container py-5">
+    <a href="/"><img src="../assets/logo-blue.svg"></a>
+    <br><br>
+    <h1>How does Recon work?</h1>
+</div>
+<div class="container py-5">
+    <div class="text-center">
+        <h3 style="color: #274db7">Section 1: How do I use Recon?</h3>
+    </div>
+
+    <div class="row my-5">
+        <div class="col text-vertical-center">
+            <p>
+                In the recommended section, cards are sorted by Recon score, from lowest to highest. The lower the Recon
+                score, the better that day is for hiking.
+            </p>
+        </div>
+        <div class="col text-vertical-center text-horizontal-center">
+            <img src="../assets/sorted.svg" style="height: 50vh">
+        </div>
+    </div>
+
+    <img src="../assets/example-recommended.svg" style="width: 100%">
+
+    <div class="row" style="margin-top: 15vh">
+        <div class="col">
+            <h2>Maximum Temperature</h2>
+            <br>
+            <p>
+                The maximum temperature describes the peak temperature of the day. Typically a temperature of more than
+                25 degrees celsius is uncomfortable. Room temperature is conventionally <b>20-22°C</b>
+            </p>
+        </div>
+        <div class="col text-vertical-center text-horizontal-center">
+            <img src="../assets/example-maxtemp.svg">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 15vh">
+        <div class="col">
+            <h2>Morning Temperature</h2>
+            <br>
+            <p>
+                The morning temperature serves as an approximate of the lowest temperature that day. It is useful for
+                getting a sense of the range of temperature throughout the day. It's also useful if you're planning to
+                hike in the morning.
+            </p>
+        </div>
+        <div class="col text-vertical-center text-horizontal-center">
+            <img src="../assets/example-morntemp.svg">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 15vh">
+        <div class="col">
+            <h2>Cloudiness</h2>
+            <br>
+            <p>
+                Cloudiness is shown as a percentage of coverage in the sky by clouds. While having more clouds may be
+                more comfortable to walk outside in, it is important to note that while they do reduce some of the sun's
+                UV rays, your skin can still be damaged.
+            </p>
+        </div>
+        <div class="col text-vertical-center text-horizontal-center">
+            <img src="../assets/example-clouds.svg">
+        </div>
+    </div>
+    <div class="row" style="margin-top: 15vh">
+        <div class="col">
+            <h2>Probability of Precipitation</h2>
+            <br>
+            <p>
+                This shows the chance of precipitation, such as rain, snow, hail, etc.
+            </p>
+        </div>
+        <div class="col text-vertical-center text-horizontal-center">
+            <img src="../assets/example-pop.svg">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 15vh">
+        <div class="col-md-5 mr-lg-5 text-vertical-center">
+            <p>
+                This Week shows the weather from the current day to next week. Each bar can be clicked on for more
+                details. The Recon score is displayed as the right-most number.
+            </p>
+        </div>
+        <div class="col-lg-5 ml-lg-5 text-vertical-center text-horizontal-center">
+            <div id="week" style="width: 100%">
+                <a href="#collapse0" data-toggle="collapse">
+                    <div class="bar-white">
+
+                        <div class="row" style="font-size: 2rem">
+                            <div class="col text-center">
+                                <img src="http://openweathermap.org/img/wn/03d@2x.png">
+                            </div>
+                            <div class="col text-center text-vertical-center">
+                                Monday
+                            </div>
+                            <div class="col text-center text-vertical-center text-horizontal-center"
+                                 style="color: #28ff00;">
+                                8
+                            </div>
+                        </div>
+                        <div class="collapse text-center pb-3" id="collapse0">
+                            <div class="row my-2 px-5">
+                                <div class="col">
+                                    <img src="../assets/peak-arrow.svg"> 21.78°C
+                                </div>
+                                <div class="col">
+                                    <img src="../assets/cloud.svg"> 40%
+                                </div>
+                            </div>
+                            <div class="row px-5">
+                                <div class="col">
+                                    <img src="../assets/min-arrow.svg"> 19.48°C
+                                </div>
+                                <div class="col">
+                                    <img src="../assets/water-drop.svg"> 4%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a><br><a href="#collapse1" data-toggle="collapse" class="" aria-expanded="true">
+                <div class="bar-white">
+
+                    <div class="row" style="font-size: 2rem">
+                        <div class="col text-center">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png">
+                        </div>
+                        <div class="col text-center text-vertical-center">
+                            Tuesday
+                        </div>
+                        <div class="col text-center text-vertical-center text-horizontal-center"
+                             style="color: #3dff00;">
+                            12
+                        </div>
+                    </div>
+                    <div class="text-center pb-3 collapse show" id="collapse1" style="">
+                        <div class="row my-2 px-5">
+                            <div class="col">
+                                <img src="../assets/peak-arrow.svg"> 22.1°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/cloud.svg"> 6%
+                            </div>
+                        </div>
+                        <div class="row px-5">
+                            <div class="col">
+                                <img src="../assets/min-arrow.svg"> 13.93°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/water-drop.svg"> 0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a><br><a href="#collapse2" data-toggle="collapse">
+                <div class="bar-white">
+
+                    <div class="row" style="font-size: 2rem">
+                        <div class="col text-center">
+                            <img src="http://openweathermap.org/img/wn/03d@2x.png">
+                        </div>
+                        <div class="col text-center text-vertical-center">
+                            Wednesday
+                        </div>
+                        <div class="col text-center text-vertical-center text-horizontal-center"
+                             style="color: #30ff00;">
+                            9
+                        </div>
+                    </div>
+                    <div class="collapse text-center pb-3" id="collapse2">
+                        <div class="row my-2 px-5">
+                            <div class="col">
+                                <img src="../assets/peak-arrow.svg"> 21.99°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/cloud.svg"> 30%
+                            </div>
+                        </div>
+                        <div class="row px-5">
+                            <div class="col">
+                                <img src="../assets/min-arrow.svg"> 14.3°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/water-drop.svg"> 0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+                <h1 class="text-center">...</h1>
+                <br><br><a href="#collapse6" data-toggle="collapse">
+                <div class="bar-white">
+
+                    <div class="row" style="font-size: 2rem">
+                        <div class="col text-center">
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png">
+                        </div>
+                        <div class="col text-center text-vertical-center">
+                            Sunday
+                        </div>
+                        <div class="col text-center text-vertical-center text-horizontal-center"
+                             style="color: #8aff00;">
+                            27
+                        </div>
+                    </div>
+                    <div class="collapse text-center pb-3" id="collapse6">
+                        <div class="row my-2 px-5">
+                            <div class="col">
+                                <img src="../assets/peak-arrow.svg"> 20.32°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/cloud.svg"> 2%
+                            </div>
+                        </div>
+                        <div class="row px-5">
+                            <div class="col">
+                                <img src="../assets/min-arrow.svg"> 12.53°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/water-drop.svg"> 9%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a><br><a href="#collapse7" data-toggle="collapse">
+                <div class="bar-white">
+
+                    <div class="row" style="font-size: 2rem">
+                        <div class="col text-center">
+                            <img src="http://openweathermap.org/img/wn/03d@2x.png">
+                        </div>
+                        <div class="col text-center text-vertical-center">
+                            Monday
+                        </div>
+                        <div class="col text-center text-vertical-center text-horizontal-center"
+                             style="color: #57ff00;">
+                            17
+                        </div>
+                    </div>
+                    <div class="collapse text-center pb-3" id="collapse7">
+                        <div class="row my-2 px-5">
+                            <div class="col">
+                                <img src="../assets/peak-arrow.svg"> 23.57°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/cloud.svg"> 26%
+                            </div>
+                        </div>
+                        <div class="row px-5">
+                            <div class="col">
+                                <img src="../assets/min-arrow.svg"> 14.53°C
+                            </div>
+                            <div class="col">
+                                <img src="../assets/water-drop.svg"> 0%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a><br></div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col text-vertical-center">
+            <p>
+                From Preferences you can adjust which weather characteristics you care about the most. In the <a
+                    href="#collapsePref" data-toggle="collapse" class="collapsed" aria-expanded="false"><u>Advanced</u></a>
+                section you can personalize what the perfect hiking day is for you.
+            </p>
+        </div>
+        <div class="col" id="preferences-section">
+            <div class="card-white">
+                <div>
+                <span class="text-vertical-center" style="color: #274db7">Dew Point&nbsp; <img
+                        class="tooltipped text-vertical-center" data-position="top"
+                        data-tooltip="The temperature at which dew will form. Affects how humid it feels outside. <br>A higher dew point is more &quot;muggy&quot; and a lower dew point can cause dry skin."
+                        src="../assets/help-circle.svg"></span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="dewp" min="0" max="100"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_dewp"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Not Important
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            Highly Important
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7">Max. Temperature &nbsp;<img
+                            class="tooltipped text-vertical-center" data-position="top"
+                            data-tooltip="The peak temperature of the day."
+                            src="../assets/help-circle.svg"></span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="maxtemp" min="0" max="100"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_maxtemp"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Not Important
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            Highly Important
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> Morning Temperature &nbsp;<img
+                            class="tooltipped text-vertical-center" data-position="top"
+                            data-tooltip="The temperature in the morning. Serves as an approximation of the <br>lowest temperature of that day."
+                            src="../assets/help-circle.svg"></span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="morntemp" min="0" max="100"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_morntemp"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Not Important
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            Highly Important
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> Cloudiness &nbsp;<img
+                            class="tooltipped text-vertical-center" data-position="top"
+                            data-tooltip="A percentage of how cloudy it is."
+                            src="../assets/help-circle.svg"></span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="clouds" min="0" max="100"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_clouds"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Not Important
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            Highly Important
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> UV Index&nbsp;<img
+                            class="tooltipped text-vertical-center" data-position="top"
+                            data-tooltip="The ultraviolet index measures the strength of sunburn-producing UV radiation.<br> A UV Index of more than 5 represents high risk of harm from unprotected sun exposure."
+                            src="../assets/help-circle.svg"></span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="uvi" min="0" max="100"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_uvi"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Not Important
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            Highly Important
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> Probability of Precipitation&nbsp;<img
+                            class="tooltipped text-vertical-center" data-position="top"
+                            data-tooltip="The probability of precipitation in a given day (ie. how likely it will rain or snow)."
+                            src="../assets/help-circle.svg"></span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="pop" min="0" max="100"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_pop"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Not Important
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            Highly Important
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="collapse" id="collapsePref">
+                    <div class="row">
+                        <div class="col-sm-auto">
+                            Advanced
+                        </div>
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> &nbsp;Ideal Dew Point</span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="idewp" min="-10" max="100"
+                                       value="14.17"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_idewp"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            -10°C
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            25°C
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> &nbsp;Ideal Max. Temperature</span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="imaxtemp" min="-90" max="50"
+                                       value="20"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_imaxtemp"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            -90°C
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            50°C
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> &nbsp;Ideal Morning Temperature</span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="imorntemp" min="-90" max="50"
+                                       value="17.5"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_imorntemp"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            -90°C
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            50°C
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> &nbsp;Ideal Cloudiness</span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="iclouds" min="0" max="100"
+                                       value="50"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_iclouds"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            0%
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            100%
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center" style="color: #274db7"> &nbsp;Ideal UV Index</span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="iuvi" min="0" max="11" value="0"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_iuvi"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            0
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            11
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <span class="text-vertical-center"
+                          style="color: #274db7"> &nbsp;Ideal Probability of Precipitation</span>
+                    <div class="row">
+                        <div class="col">
+                            <p class="range-field" style="margin-bottom: 0">
+                                <input type="range" class="preference_slider" id="ipop" min="0" max="100" value="0"/>
+                            </p>
+                        </div>
+                        <div class="col-sm-auto text-vertical-center">
+                            <div id="indicate_ipop"
+                                 style="color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px"
+                                 class="text-vertical-center text-horizontal-center">
+                                50
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            0%
+                        </div>
+                        <div class="col text-right" style="color: #274db7">
+                            100%
+                        </div>
+                        <div class="col-sm-auto" style="opacity: 0">
+                            <div style="width: 30px; height: 30px"></div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="button-blue" onclick="reset_preferences()" href="#"
+                           data-toggle="collapse">RESET</a>
+                    </div>
+                    <div class="col text-right text-vertical-center" style="justify-content: flex-end">
+                        <a href="#collapsePref" data-toggle="collapse"><u>Advanced</u></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <h3 style="color: #274db7">Section 2: How is Recon score calculated?</h3>
+    </div>
+    <br>
+    <p>
+        Weather data is pulled from the Open Weather Map One Call API, which gives daily forecasts for 7 days. Although
+        the Recon website only displays max. temperature, morning temperature, probability of precipitation, and
+        cloudiness, the score takes into consideration other variables like the dew point and UV index, which are less
+        intuitive. The person who made this website is <span
+            style="color: #274db7">not, in fact, a meteorologist,</span> but instead took 30 minutes to
+        search up some stuff on Google about which values of each weather characteristic create the most comfortable
+        hiking days, so if you have different tastes in weather, or are an actual meteorologist, the Preferences section
+        is made for you! Below, you can see and play with how the Recon score is calculated (Not available currently).
+    </p>
+<!--    <p>-->
+<!--        The dew point today, which is 15.3°C, is only 1.13°C away from the ideal dew point, 14.17°C, and thus contributes-->
+<!--        0 to the Recon score.-->
+<!--        <br><br>-->
+<!--        The max. temperature today, which is 21.94°C, is only 1.94°C away from the ideal max. temperature, 20°C, and thus-->
+<!--    </p>-->
+
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"
+        integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="../js/materialize.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    function reset_preferences() {
+        document.getElementById("preferences-section").innerHTML = "<div class=\"card-white\">\n" +
+            "                <div>\n" +
+            "                <span class=\"text-vertical-center\" style=\"color: #274db7\">Dew Point&nbsp; <img\n" +
+            "                        class=\"tooltipped text-vertical-center\" data-position=\"top\"\n" +
+            "                        data-tooltip=\"The temperature at which dew will form. Affects how humid it feels outside. <br>A higher dew point is more &quot;muggy&quot; and a lower dew point can cause dry skin.\"\n" +
+            "                        src=\"../assets/help-circle.svg\"></span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"dewp\" min=\"0\" max=\"100\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_dewp\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            Not Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            Highly Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\">Max. Temperature &nbsp;<img\n" +
+            "                            class=\"tooltipped text-vertical-center\" data-position=\"top\"\n" +
+            "                            data-tooltip=\"The peak temperature of the day.\"\n" +
+            "                            src=\"../assets/help-circle.svg\"></span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"maxtemp\" min=\"0\" max=\"100\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_maxtemp\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            Not Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            Highly Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> Morning Temperature &nbsp;<img\n" +
+            "                            class=\"tooltipped text-vertical-center\" data-position=\"top\"\n" +
+            "                            data-tooltip=\"The temperature in the morning. Serves as an approximation of the <br>lowest temperature of that day.\"\n" +
+            "                            src=\"../assets/help-circle.svg\"></span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"morntemp\" min=\"0\" max=\"100\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_morntemp\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            Not Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            Highly Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> Cloudiness &nbsp;<img\n" +
+            "                            class=\"tooltipped text-vertical-center\" data-position=\"top\"\n" +
+            "                            data-tooltip=\"A percentage of how cloudy it is.\"\n" +
+            "                            src=\"../assets/help-circle.svg\"></span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"clouds\" min=\"0\" max=\"100\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_clouds\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            Not Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            Highly Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> UV Index&nbsp;<img\n" +
+            "                            class=\"tooltipped text-vertical-center\" data-position=\"top\"\n" +
+            "                            data-tooltip=\"The ultraviolet index measures the strength of sunburn-producing UV radiation.<br> A UV Index of more than 5 represents high risk of harm from unprotected sun exposure.\"\n" +
+            "                            src=\"../assets/help-circle.svg\"></span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"uvi\" min=\"0\" max=\"100\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_uvi\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            Not Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            Highly Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> Probability of Precipitation&nbsp;<img\n" +
+            "                            class=\"tooltipped text-vertical-center\" data-position=\"top\"\n" +
+            "                            data-tooltip=\"The probability of precipitation in a given day (ie. how likely it will rain or snow).\"\n" +
+            "                            src=\"../assets/help-circle.svg\"></span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"pop\" min=\"0\" max=\"100\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_pop\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            Not Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            Highly Important\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "                <br>\n" +
+            "                <br>\n" +
+            "                <div class=\"collapse\" id=\"collapsePref\">\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col-sm-auto\">\n" +
+            "                            Advanced\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <hr>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> &nbsp;Ideal Dew Point</span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"idewp\" min=\"-10\" max=\"100\"\n" +
+            "                                       value=\"14.17\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_idewp\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            -10°C\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            25°C\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> &nbsp;Ideal Max. Temperature</span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"imaxtemp\" min=\"-90\" max=\"50\"\n" +
+            "                                       value=\"20\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_imaxtemp\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            -90°C\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            50°C\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> &nbsp;Ideal Morning Temperature</span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"imorntemp\" min=\"-90\" max=\"50\"\n" +
+            "                                       value=\"17.5\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_imorntemp\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            -90°C\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            50°C\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> &nbsp;Ideal Cloudiness</span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"iclouds\" min=\"0\" max=\"100\"\n" +
+            "                                       value=\"50\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_iclouds\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            0%\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            100%\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\" style=\"color: #274db7\"> &nbsp;Ideal UV Index</span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"iuvi\" min=\"0\" max=\"11\" value=\"0\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_iuvi\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            0\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            11\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                    <span class=\"text-vertical-center\"\n" +
+            "                          style=\"color: #274db7\"> &nbsp;Ideal Probability of Precipitation</span>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            <p class=\"range-field\" style=\"margin-bottom: 0\">\n" +
+            "                                <input type=\"range\" class=\"preference_slider\" id=\"ipop\" min=\"0\" max=\"100\" value=\"0\"/>\n" +
+            "                            </p>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto text-vertical-center\">\n" +
+            "                            <div id=\"indicate_ipop\"\n" +
+            "                                 style=\"color: white; background: #274db7; border-radius: 50%; width: 30px; height: 30px\"\n" +
+            "                                 class=\"text-vertical-center text-horizontal-center\">\n" +
+            "                                50\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"row\">\n" +
+            "                        <div class=\"col\">\n" +
+            "                            0%\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col text-right\" style=\"color: #274db7\">\n" +
+            "                            100%\n" +
+            "                        </div>\n" +
+            "                        <div class=\"col-sm-auto\" style=\"opacity: 0\">\n" +
+            "                            <div style=\"width: 30px; height: 30px\"></div>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                    <br>\n" +
+            "                </div>\n" +
+            "                <div class=\"row\">\n" +
+            "                    <div class=\"col\">\n" +
+            "                        <a class=\"button-blue\" onclick=\"reset_preferences()\" href=\"#\"\n" +
+            "                           data-toggle=\"collapse\">RESET</a>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"col text-right text-vertical-center\" style=\"justify-content: flex-end\">\n" +
+            "                        <a href=\"#collapsePref\" data-toggle=\"collapse\"><u>Advanced</u></a>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "            </div>"
+    }
+</script>
+</body>
+</html>
