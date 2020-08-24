@@ -8,8 +8,14 @@ import time
 
 app = Flask(__name__)
 
-with open(r'config.yaml') as file:
-    config = yaml.load(file, Loader=yaml.FullLoader)
+if os.path.exists("config.yaml"):
+    with open(r'config.yaml') as file:
+        config = yaml.load(file, Loader=yaml.FullLoader)
+else:
+    config = {
+        "weather-token": os.environ["weather-token"],
+        "secret-key": os.environ["secret-key"]
+    }
 
 app.secret_key = config['secret-key'].encode('utf8')
 
