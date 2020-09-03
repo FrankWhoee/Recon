@@ -230,6 +230,7 @@ async function get_data(position, sorted = false) {
 }
 
 function geoError(error) {
+    render_wrap({coords:{latitude:49.278731,longitude:-122.972754}})
     switch (error.code) {
         case error.PERMISSION_DENIED:
             Swal.fire({
@@ -298,6 +299,7 @@ $(document).ready(function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(render_wrap, geoError);
         } else {
+            render_wrap({"coords":{"lat":49.278731,"long":-122.972754}})
             Swal.fire({
                 position: 'top',
                 icon: 'error',

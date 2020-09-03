@@ -96,6 +96,12 @@ def update_preferences():
         session[pref] = float(request.json[pref])
     return "{}"
 
+@app.route('/location')
+def get_location():
+    return "Service Unavailable Currently"
+    # req = get("http://maps.googleapis.com/maps/api/geocode/json?latlng="+request.args["lat"]+","+request.args["long"]+"&sensor=true&key=" + config['gcloud-key'])
+
+
 @app.route('/pref')
 def get_preferences():
     output = {}
