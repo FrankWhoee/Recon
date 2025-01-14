@@ -1,5 +1,5 @@
 # Recon
-Webiste Adaptation of Recon Bolt the discord bot. Helps you find good days to hike. To use, just go to https://reconbolt.herokuapp.com
+A personalizable weather app that prioritizes comfort and concise information. To use, just go to https://recon-tfc8.onrender.com/
 
 ## How to Deploy (Linux or MacOS)
 1. `git clone https://github.com/FrankWhoee/Recon.git`
